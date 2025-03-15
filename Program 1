@@ -1,0 +1,12 @@
+Python_list = [10, 501, 22, 37, 100, 999, 87, 351]
+even_numbers = []  # List to store even numbers
+odd_numbers = []   # List to store odd numbers
+for number in Python_list:
+    if number % 2 == 0:
+        even_numbers.append(number)  # Add even number to the even_numbers list
+    elif number % 2 != 0:
+        odd_numbers.append(number)   # Add odd number to the odd_numbers list
+    else:
+        print("No Data to print")     
+print("Even numbers:", even_numbers)
+print("Odd numbers:", odd_numbers)
