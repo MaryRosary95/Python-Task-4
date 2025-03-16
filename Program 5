@@ -1,0 +1,28 @@
+PY_Coins = [1, 2, 5, 10]
+Target = 10
+def find_combinations(Target, coins):
+    # List to store the combinations
+    result = []
+    
+    # Helper function to find combinations recursively
+    def find_combinations_helper(Target, PY_Coins, current_combination, start):
+        if Target == 0:
+            result.append(list(current_combination))
+            return
+        for i in range(start, len(PY_Coins)):
+            if PY_Coins[i] <= Target:
+                current_combination.append(PY_Coins[i])
+                find_combinations_helper(Target - PY_Coins[i], PY_Coins, current_combination, i)  # Allow repeated coins
+                current_combination.pop()
+    
+    # Call the helper function with the initial parameters
+    find_combinations_helper(Target, PY_Coins, [], 0)
+    
+    return result
+
+combinations = find_combinations(Target, PY_Coins)
+
+# Printing the results
+print("Below are Combinations to make Rs.10:")
+for combo in combinations:
+    print(combo)
