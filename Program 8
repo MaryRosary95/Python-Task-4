@@ -1,0 +1,19 @@
+Sorted_list = [4, 5, 6, 7, 8, 9, 2]
+def find_min_in_rotated_sorted_list(Sorted_list):
+    low, high = 0, len(Sorted_list) - 1
+    
+    while low < high:
+        mid = (low + high) // 2
+        
+        # If middle element is greater than the high element, the minimum is in the right part
+        if Sorted_list[mid] > Sorted_list[high]:
+            low = mid + 1
+        # If middle element is less than or equal to the high element, the minimum is in the left part
+        else:
+            high = mid
+    
+    # low will be pointing to the minimum element
+    return Sorted_list[low]
+
+min_element = find_min_in_rotated_sorted_list(Sorted_list)
+print("The minimum element is:", min_element)
