@@ -1,0 +1,14 @@
+Interger_value = 5678908
+def sum_first_and_last_digit(n):
+    # Convert the number to a string to easily access the first and last digits
+    n_str = str(n)
+    
+    # First digit is the first character, last digit is the last character
+    first_digit = int(n_str[0])
+    last_digit = int(n_str[-1])
+    
+    # Return the sum of the first and last digits
+    return first_digit + last_digit
+
+result = sum_first_and_last_digit(Interger_value)
+print("The sum of the first and last digits is:",result)
