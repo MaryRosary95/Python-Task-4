@@ -1,0 +1,15 @@
+list1 = [0,1, 2, 3, 4, 5, 6]
+list2 = [4, 5, 6, 7, 8,0]
+list3 = [5, 6, 9, 10,1,0]
+def find_duplicates(list1, list2, list3):
+    # Convert lists to sets and find the intersection (common elements)
+    set1, set2, set3 = set(list1), set(list2), set(list3)
+    
+    # Find common elements in all three lists
+    Duplicates_Caught = set1 & set2 & set3
+    
+    return list(Duplicates_Caught)
+
+
+Duplicates_Caught = find_duplicates(list1, list2, list3)
+print("Duplicate from the three lists:", Duplicates_Caught)
