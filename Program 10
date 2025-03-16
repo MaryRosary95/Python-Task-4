@@ -1,0 +1,24 @@
+Py_list = [4, 2, -3, 1, 6]
+def has_zero_sum_sublist(Py_list):
+    # Initialize an empty set to store cumulative sums
+    seen_sums = set()
+    current_sum = 0
+    
+    for num in Py_list:
+        # Update the current sum by adding the current element
+        current_sum += num
+        
+        # Check if the current sum is 0, or if it's already in the set
+        if current_sum == 0 or current_sum in seen_sums:
+            return True
+        
+        # Add the current sum to the set
+        seen_sums.add(current_sum)
+    
+    return False
+
+result = has_zero_sum_sublist(Py_list)
+if result:
+    print("There is a sublist with sum equal to zero.")
+else:
+    print("There is no sublist with sum equal to zero.")
