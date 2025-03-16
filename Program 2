@@ -1,0 +1,15 @@
+Python_list = [10,501,22,37,100,999,87,351]
+def is_prime(num):
+    # Function to check if a number is prime
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def count_and_print_primes(Python_list):
+    prime_numbers = [num for num in Python_list if is_prime(num)]  # List of primes
+    print("Prime numbers in the list:", prime_numbers)
+    print("Total number of prime numbers:", len(prime_numbers))
+count_and_print_primes(Python_list)
