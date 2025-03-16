@@ -1,0 +1,17 @@
+HappyNumber_list = [10, 501, 22, 37, 100, 999, 87, 351]
+def is_happy_number(n):
+    seen = set()  # Set to track numbers we've already encountered in the process
+    while n != 1 and n not in seen:
+        seen.add(n)
+        n = sum(int(digit)**2 for digit in str(n))  # Sum of squares of digits
+    return n == 1  # Return True if the number is happy (reaches 1), False otherwise
+
+def count_happy_numbers(HappyNumber_list):
+    happy_count = 0
+    for num in HappyNumber_list:
+        if is_happy_number(num):
+            happy_count += 1
+    return happy_count
+
+happy_count = count_happy_numbers(HappyNumber_list)
+print("Number of happy numbers in the list:",happy_count)
