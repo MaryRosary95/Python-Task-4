@@ -1,0 +1,39 @@
+Triple_list = [10,20,30,9]
+Triplet_value = 59
+def find_triplets(Triple_list, Triplet_value):
+    Triple_list.sort()  # Sort the Triple_listay to use two-pointer approach
+    triplets = []
+
+    for i in range(len(Triple_list) - 2):  # The first element of the triplet
+        # Skip duplicates to avoid repeating the same triplet
+        if i > 0 and Triple_list[i] == Triple_list[i - 1]:
+            continue
+        
+        left, right = i + 1, len(Triple_list) - 1  # Two pointers
+        
+        while left < right:
+            current_sum = Triple_list[i] + Triple_list[left] + Triple_list[right]
+            
+            if current_sum == Triplet_value:  # Found a triplet
+                triplets.append([Triple_list[i], Triple_list[left], Triple_list[right]])
+                
+                # Move both pointers to avoid duplicates
+                while left < right and Triple_list[left] == Triple_list[left + 1]:
+                    left += 1
+                while left < right and Triple_list[right] == Triple_list[right - 1]:
+                    right -= 1
+                
+                # Move both pointers
+                left += 1
+                right -= 1
+            elif current_sum < Triplet_value:  # Sum is too small, move left pointer
+                left += 1
+            else:  # Sum is too large, move right pointer
+                right -= 1
+    
+    return triplets
+
+
+triplets = find_triplets(Triple_list, Triplet_value)
+print("Triplets that sum to 59:", triplets)
+
